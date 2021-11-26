@@ -7,10 +7,34 @@
 	"item": [
 		{
 			"name": "New Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"url\", \"http://127.0.0.1:5000/\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "http://127.0.0.1:5000/",
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		}
